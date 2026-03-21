@@ -29,6 +29,10 @@ table{
     width: auto;
 }
 
+td{
+    padding: 0.3rem;
+}
+
 .warning{
     color: red;
 }
