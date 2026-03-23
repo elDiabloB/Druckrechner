@@ -1,46 +1,69 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rechner für Druck-/Dichtehöhe</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    
-    <h1 class="heading">Druckrechner</h1>
-    <h2>Für die Fliegerei</h2>
-    <h3 class="warning">Nutzung auf eigene Gefahr: Die Nutzung dieser App erfolgt ausschließlich auf eigene Gefahr.</h3>
-    <h3 class="warning">Diese App dient lediglich als Informations- und Planungshilfe.</h3>
-    <p>Welche Bezugseinheit wollen Sie verwenden (ft/m)?</p>
-    <label for="unit">Bitte Auswählen:</label>
-    <select id="einheit">
-        <option value="" selected></option></optin>
-        <option value="ft">Fuß (ft)</option>
-        <option value="m">Meter (m)</option>
-    </select>
-    <p></p>
-    <table class="table">
-        <tr><td><label>QNH</label></td><td><input type="number" id="qnh" value="" size="6" maxlength="4" ></td><td></td></tr>
-        <tr><td><label>Temperatur</label></td><td><input type="number" id="temp" step="1" value="" size="6" maxlength="3"></td><td></td></tr>
-        <tr><td><label>Platzhöhe</label></td><td><input type="number" id="fe" value="" size="6" maxlength="4"><span id="aktEinh" style="margin-left: 5px;"></span></td></tr>
-    </table>
-    <br><br>
-    <button class="button" onclick="onClickBtn()">Berechnen</button>
-    <br><br>
-    <div style="display: flex; gap: 20px; justify-content: center;">
-  <div class="box">
-    <span class="description">Druckhöhe</span>
-    <strong class="result" id ="outPressAlt"></strong>
-  </div>
-  <div class="box">
-    <span class="description">Dichtehöhe</span>
-    <strong class="result" id="outDensAlt"></strong>
-  </div>
-</div>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <h1>Druck<span>rechner</span></h1>
+
+    <div class="card">
+      <div class="warning-box">
+        &#9888; Nutzung auf eigene Gefahr - Nur zur Planung/Information
+      </div>
+
+      <div class="inputs">
+        <div class="input-group">
+          <label>QNH</label>
+          <input type="number" id="qnh" placeholder="1013" />
+          <span class="unit">hPa</span>
+        </div>
+        <div class="input-group">
+          <label>Temperatur</label>
+          <input type="number" id="temp" step="1" placeholder="15" />
+          <span class="unit">°C</span>
+        </div>
+        <div class="input-group">
+          <label>Platzhöhe</label>
+          <input type="number" id="fe" step="1" placeholder="1000" />
+          <span class="unit" id="aktEinh">ft</span>
+        </div>
+      </div>
+
+      <div class="limit-row">
+        <div class="input-group">
+          <label>Einheit</label>
+          <select id="einheit">
+            <option value="ft" selected>Fuß (ft)</option>
+            <option value="m">Meter (m)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="btn-row">
+        <button id="calcBtn" onclick="onClickBtn()">Berechnen</button>
+      </div>
+
+      <div class="results">
+        <div class="result-box box-head">
+          <div class="tag">Druckhöhe</div>
+          <div class="value" id="outPressAlt">-</div>
+        </div>
+        <div class="result-box box-cross">
+          <div class="tag">Dichtehöhe</div>
+          <div class="value" id="outDensAlt">-</div>
+        </div>
+      </div>
+    </div>
+
     <script src="app.js"></script>
-</body>
-<footer>
-    <span>(C) 2026 Josef Weiß <a href="mailto:weiss.josef1987@googlemail.com">Mail schreiben</a></span>
-</footer>
+  </body>
+  <footer>
+    <span
+      >(C) 2026 Josef Weiß
+      <a href="mailto:weiss.josef1987@googlemail.com">Mail schreiben</a></span
+    >
+  </footer>
 </html>
